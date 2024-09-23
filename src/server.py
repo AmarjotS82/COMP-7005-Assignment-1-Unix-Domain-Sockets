@@ -47,9 +47,10 @@ def start_server(socket_path):
         except IsADirectoryError:
             sys.exit("Trying to bind a directory! Must be file.")
     new_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-
-    new_socket.bind(address_file_path)
-    
+    try: 
+        new_socket.bind(address_file_path)
+    except FileNotFoundError:
+        sys.exit("Can't find direcotry or file! Double check the path.")
 
     while(True):
         try:
