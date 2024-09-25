@@ -86,7 +86,7 @@ def handle_client_request(file_path, connection):
     print("handling client request...")
     split_path = os.path.split(file_path)
     file_name = split_path[1]
-    time.sleep(20)
+    # time.sleep(20)
     if file_exists(file_path):
         message = file_name + " exists"
         try:
